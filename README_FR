@@ -1,0 +1,74 @@
+🇫🇷 **Français** · 🇬🇧 [English version](README.md)
+
+# MythDesk
+
+**Le cabinet du maître de jeu** — compagnon d'écran pour le jeu de rôle sur table, pensé pour la
+table physique et le réseau local. Le MJ lance une application ; les joueurs rejoignent depuis
+leur navigateur, sur le même WiFi. Pas de compte en ligne, pas de cloud : **tout reste chez vous,
+et tout fonctionne sans Internet**.
+
+![Écran d'accueil de MythDesk](docs/captures/accueil.png)
+
+> MythDesk n'est pas une table virtuelle 3D de plus : pas d'éclairage dynamique, pas de
+> marketplace. C'est un **compagnon de table** — l'outil qu'on ouvre à côté des dés, pour que le
+> MJ raconte au lieu de chercher ses notes.
+
+## Fonctionnalités
+
+**Univers** (le compendium)
+- D&D 5 (SRD 5.1) et D&D 5.5 (SRD 5.2 / 2024) **intégrés et complets** : sorts, créatures, objets
+  magiques, langues, lieux, règles — et pour 2024 : espèces, historiques, dons, maîtrises d'armes
+- Entièrement **bilingue français / anglais** (interface ET données, au choix par poste)
+- **Compendiums personnalisés importables** (`.mythkeeper-compendium.json`) : jouez n'importe quel
+  système. Un [guide de conversion](docs/GUIDE-CONVERSION-IA.md) permet de transformer un PDF de
+  règles en compendium à l'aide d'une IA, et l'Univers d'une chronique se réexporte en compendium
+
+**Campagne** (la partie en cours)
+- **Scénario à embranchements** : scènes, texte à lire à voix haute, notes MJ, choix et
+  conséquences, carte et ambiance liées — bouton « ▶ Jouer » qui met la table en scène
+- **Cartes** avec brouillard de guerre (opaque pour les joueurs, semi-transparent pour le MJ),
+  pions, règle de mesure, ping
+- Compagnie (fiches de personnages avec auto-calcul D&D des sauvegardes et compétences), PNJ,
+  bestiaire et inventaire de campagne, illustrations et vidéos projetables, chronique de campagne
+- Import/export : la campagne complète ou un scénario seul, en un fichier
+
+**Outils du MJ**
+- **Combat** : initiative, PV synchronisés avec les fiches, mise en avant des pions sur la carte
+- **Ambiance sonore** : bibliothèque d'ambiances et musiques (CC0), scènes sonores, boucles
+- **Ardoise** : dessin libre partagé, pions rapides, exports en image
+- **Écran de table** : une fenêtre sans fioritures à poser sur une TV ou un second écran face aux
+  joueurs — carte, illustrations, initiative en temps réel
+
+**Et autour**
+- Mentions `@` partout (personnages, créatures, objets) avec fiche au survol
+- Les **données MJ ne quittent jamais le serveur** : scénarios, notes et combat sont filtrés côté
+  serveur, pas seulement masqués à l'écran
+- 100 % hors-ligne : polices, règles, audio et bibliothèques embarqués
+
+## Démarrage rapide
+
+1. Lancez `MythDesk.exe` (portable, rien à installer) — c'est le poste du MJ, il doit rester ouvert.
+2. Créez votre compte de conteur, puis votre première chronique.
+3. Les joueurs ouvrent l'adresse affichée sur l'accueil (`http://<ip-du-mj>:47832`) dans leur
+   navigateur, sur le même réseau, et rejoignent avec le **code d'invitation** de la chronique.
+
+Pour jouer à distance (hors du même WiFi), voir [docs/JEU-A-DISTANCE.md](docs/JEU-A-DISTANCE.md)
+(Tailscale / Radmin VPN, sans configuration réseau avancée).
+
+
+L'architecture est volontairement simple : pas d'étape de build côté client (des fichiers `.jsx`
+transpilés à la volée par le serveur), un serveur Express + Socket.io autoritatif, une base de
+données JSON sur disque. Le format des compendiums est documenté dans
+[docs/FORMAT-COMPENDIUM.md](docs/FORMAT-COMPENDIUM.md).
+
+## Licences & attributions
+
+- **Code** : © MythDesk — tous droits réservés (licence de distribution à venir).
+- **Contenu de jeu** : cette œuvre inclut du matériel issu du *System Reference Document 5.1* et du
+  *System Reference Document 5.2.1* de Wizards of the Coast LLC, sous licence
+  [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
+  Les attributions complètes sont dans l'écran **Crédits & licences** de l'application.
+  MythDesk est un outil indépendant, ni affilié à, ni approuvé par Wizards of the Coast.
+- **Polices** : Cormorant Garamond, Inter, Space Mono et Spectral, embarquées sous
+  [SIL Open Font License](fonts/LICENCES.txt).
+- **Audio** : bibliothèque d'ambiances sous licence CC0.
